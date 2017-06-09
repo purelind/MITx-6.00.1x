@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jun 8 2016
-
-@author: Kevin
-"""
-
 school = 'Massachusetts Institute of Technology'
 numVowels = 0
 numCons = 0

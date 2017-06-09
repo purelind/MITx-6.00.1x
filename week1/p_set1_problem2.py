@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jun 8 2016
-
-@author: Kevin
-"""
-
-
 s = "bobbobob"
 count = 0
 
