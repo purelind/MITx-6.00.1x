@@ -125,7 +125,53 @@ def playGame(wordList):
     wordList: list (string)
     """
     # TO DO... <-- Remove this comment when you code this function
-    print("playGame not yet implemented.") # <-- Remove this when you code this function
+    currentHand = ""
+    while True:
+        gameChoice = input("Enter n to deal a new hand, r to replay the last hand, or e to end game: ")
+        if gameChoice not in ["n", "r", "e"]:
+            print("Invalid command.\n")
+            continue
+        if gameChoice == "n":
+            print()
+            while True:
+                computerOrUser = input("Enter u to have yourself play, c to have the computer play: ")
+                if computerOrUser not in ["u", "c"]:
+                    print("Invalid command.\n")
+                    continue
+                if computerOrUser == "u":
+                    print()
+                    currentHand = dealHand(HAND_SIZE)
+                    playHand(currentHand, wordList, HAND_SIZE)
+                    print()
+                    break
+                if computerOrUser == "c":
+                    print()
+                    currentHand = dealHand(HAND_SIZE)
+                    compPlayHand(currentHand, wordList, HAND_SIZE)
+                    print()
+                    break
+        if gameChoice == "r":
+            if not currentHand:
+                print("You have not played a hand yet. Please play a new hand first!\n")
+                continue
+            print()
+            while True:
+                computerOrUser = input("Enter u to have yourself play, c to have the computer play: ")
+                if computerOrUser not in ["u", "c"]:
+                    print("Invalid command.\n")
+                    continue
+                if computerOrUser == "u":
+                    print()
+                    playHand(currentHand, wordList, HAND_SIZE)
+                    print()
+                    break
+                if computerOrUser == "c":
+                    print()
+                    compPlayHand(currentHand, wordList, HAND_SIZE)
+                    print()
+                    break
+        if gameChoice == "e":
+            break
 
         
 #
@@ -134,5 +180,4 @@ def playGame(wordList):
 if __name__ == '__main__':
     wordList = loadWords()
     playGame(wordList)
-
 

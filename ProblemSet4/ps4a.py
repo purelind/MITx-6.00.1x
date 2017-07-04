@@ -277,7 +277,27 @@ def playGame(wordList):
     2) When done playing the hand, repeat from step 1    
     """
     # TO DO ... <-- Remove this comment when you code this function
-    
+    currentHand = ""
+    while True:
+        gameChoice = input("Enter n to deal a new hand, r to replay the last hand, or e to end game: ")
+        if gameChoice not in ["n", "r", "e"]:
+            print("Invalid command.")
+            continue
+        else:
+            if gameChoice == "n":
+                currentHand = dealHand(HAND_SIZE)
+                playHand(currentHand, wordList, HAND_SIZE)
+                print()
+            if gameChoice == "r":
+                if currentHand:
+                    playHand(currentHand, wordList, HAND_SIZE)
+                else:
+                    print("You have not played a hand yet. Please play a new hand first!\n")
+                    continue
+            if gameChoice == "e":
+                break
+
+
    
 
 
